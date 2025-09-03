@@ -8,7 +8,7 @@ W = 27.0 #in.
 E = 275.0 #psi 
 G = E / (2 * (1 + ν)) #psi 
 
-a = -2.0 #displacement at top of bearing, plane A-A-A-A
+a = -0.5 #displacement at top of bearing, plane A-A-A-A
 b = -ν * a  #maximum bulging or lateral displacement at midheight of bearing 
 
 #point = point defined with coordinates [x, y, z]
