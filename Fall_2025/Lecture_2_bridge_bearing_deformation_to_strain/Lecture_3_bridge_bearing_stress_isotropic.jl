@@ -6,11 +6,11 @@ H = 12.0 #in.
 W = 27.0 #in.
 μ = 0.5 #Poisson's ratio for natural rubber 
 
-a = -1.0 #displacement at top of bearing, plane A-A-A-A
+a = -2.0 #displacement at top of bearing, plane A-A-A-A
 b = -μ * a  #maximum bulging or lateral displacement at midheight of bearing 
 
-#point = point defined with coordinatees [x, y, z]
-
+#point = point defined with coordinates [x, y, z]
+                                        [1, 2, 3]
 
 #define the vertical deformation field
 v(point) = a * point[2] / H 
@@ -18,6 +18,7 @@ v(point) = a * point[2] / H
 #define lateral deformation field 
 u(point) = b * sin(π * point[2]/ H) * (1/(W/2)) * (point[1] - W/2)
 
+#write w for HW
 
 #now calculate the gradient of the deformation fields at a point
 
