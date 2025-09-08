@@ -17,19 +17,18 @@ v(point) = a * point[2] / H
 
 #define lateral deformation field 
 u(point) = b * sin(π * point[2]/ H) * (1/(W/2)) * (point[1] - W/2)
+w(point) = b * sin(π * point[2]/ H) * (1/(W/2)) * (point[3] - W/2)
 
-#write w for HW
 
 #now calculate the gradient of the deformation fields at a point
 
 #define the coordinates of the point
-point = [W, H/2, 0.0]
+point = [W/2, 0.0, W]
 
-#calculate u at this point, just to check things 
+#calculate deformation at this point, just to check things 
 u(point)
-
-#calculate v at this point, just to check things 
 v(point)
+w(point)
 
 #this gives ∂u/∂x, ∂u/∂y, ∂u/∂z at a point in the domain 
 ∇u_at_a_point = ForwardDiff.gradient(u, point)
@@ -37,5 +36,14 @@ v(point)
 #this gives ∂v/∂x, ∂v/∂y, ∂v/∂z at a point in the domain 
 ∇v_at_a_point = ForwardDiff.gradient(v, point)
 
+#this gives ∂w/∂x, ∂w/∂y, ∂w/∂z at a point in the domain 
+∇w_at_a_point = ForwardDiff.gradient(w, point)
+
+#displacement gradient tensor
+∇ = [∇u_at_a_point'
+    ∇v_at_a_point'
+    ∇w_at_a_point']
 
 
+#strain tensor
+ϵkl_at_a_point = 1/2 .* [∇[i,j] + ∇[j,i] for i=1:3, j=1:3]

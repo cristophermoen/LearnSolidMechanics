@@ -40,7 +40,7 @@ v(point)
 ∇v_at_a_point = ForwardDiff.gradient(v, point)
 
 #this gives ∂w/∂x, ∂w/∂y, ∂w/∂z at a point in the domain 
-∇w_at_a_point = ForwardDiff.gradient(v, point)
+∇w_at_a_point = ForwardDiff.gradient(w, point)
 
 #displacement gradient tensor
 ∇ = [∇u_at_a_point'
