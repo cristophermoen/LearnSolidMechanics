@@ -62,4 +62,4 @@ Sijkl =[    1/E    -ν/E    -ν/E    0.0      0.0     0.0;
 Cijkl = inv(Sijkl) 
 
 
-σij_at_a_point = Cijkl * [ϵkl_at_a_point[1, 1], ϵkl_at_a_point[2, 2], ϵkl_at_a_point[3, 3], 2 * ϵkl_at_a_point[1, 2],  2 * ϵkl_at_a_point[1, 3], 2 * ϵkl_at_a_point[2, 3] ]       
+σij_at_a_point = Cijkl * [ϵkl_at_a_point[1, 1], ϵkl_at_a_point[2, 2], ϵkl_at_a_point[3, 3], 2 * ϵkl_at_a_point[2, 3],  2 * ϵkl_at_a_point[3, 1], 2 * ϵkl_at_a_point[1, 2] ]       
