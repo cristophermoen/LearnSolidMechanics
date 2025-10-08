@@ -10,14 +10,16 @@ using CairoMakie, ForwardDiff, StaticArrays, NonlinearSolve
 
 
 σ_r_inner = 0.0
-σ_r_outer = 100.0  #N/mm^2
-r_inner = 18.0 #mm
+σ_r_outer = 100.0  #N/mm^2, vary this 
+r_inner = 0.1 #mm
 r_outer = 25.0 #mm
 
 
 
 p = [σ_r_inner, σ_r_outer, r_inner, r_outer]
 
+
+#define residual functions for inner and outer radii 
 function calculate_radial_stress_residual(u, p)
 
     σ_r_inner, σ_r_outer, r_inner, r_outer = p
@@ -39,8 +41,8 @@ function calculate_radial_stress_residual(u, p)
 
 end
 
-
-u0 = [1.0, 1.0, 1.0, 1.0]
+    # a0,  a1, a2, a3 
+u0 = [-1.0, 1.0, 1.0, 1.0]
 prob = NonlinearProblem(calculate_radial_stress_residual, u0, p)
 solver = solve(prob)
 
@@ -73,6 +75,6 @@ f = Figure()
 ax = Axis(f[1, 1], xlabel = "r[mm]",
 ylabel = "σr [N/mm^2]")
 scatterlines!(radius_range, σ_r_range)
-xlims!(ax, 0.0, 25.0)
+# xlims!(ax, 18, 25.0)
 ylims!(ax, 0.0, 200)
 f
