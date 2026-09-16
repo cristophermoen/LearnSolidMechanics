@@ -11,7 +11,7 @@ using CairoMakie, ForwardDiff, StaticArrays, NonlinearSolve
 
 σ_r_inner = 0.0
 σ_r_outer = 100.0  #N/mm^2, vary this 
-r_inner = 0.1 #mm
+r_inner = 18.0 #mm
 r_outer = 25.0 #mm
 
 
@@ -42,7 +42,7 @@ function calculate_radial_stress_residual(u, p)
 end
 
     # a0,  a1, a2, a3 
-u0 = [-1.0, 1.0, 1.0, 1.0]
+u0 = [-1.0, 1.0, 1.0, 10000.0]
 prob = NonlinearProblem(calculate_radial_stress_residual, u0, p)
 solver = solve(prob)
 
