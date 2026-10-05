@@ -2,7 +2,7 @@
 # or in VS Code, activate this folder's environment first.
 
 using LinearAlgebra
-using WGLMakie
+# using WGLMakie
 
 #pure shear example, only σ12 = σ21 = τ is nonzero, units are MPa
 τ = 10.0

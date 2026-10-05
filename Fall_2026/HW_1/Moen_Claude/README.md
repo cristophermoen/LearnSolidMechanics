@@ -14,10 +14,12 @@ top face as σ0 = W / H² = 1.77 kPa. Bottom face restrained. Linear hexahedral 
 | `cube_frictionless.vtu`, `cube_clamped.vtu`, `cube_rough_platens.vtu` | ParaView output (displacement `u`, stress `sigma`). Use *Warp By Vector* on `u` |
 | `section_plot.jl` | Shared helpers for the row-per-case, column-per-component section plots |
 | `plot_strain.jl` | Plots ε_zz, ε_xx, ε_xy, ε_xz on the same section for all three cases, saves `cube_strain.png` |
+| `plot_stress.jl` | Plots σ_zz, σ_xx, σ_yy, σ_xy, σ_xz, σ_yz on the same section for all three cases, saves `cube_stress.png` |
 | `plot_displacement.jl` | Plots u, v, w and \|u\| on the same section, saves `cube_displacement.png` |
 | `element_figure.jl` | Draws the 27-node reference element: node numbering, (ξ, η, ζ) axes, shape functions; saves `element_27node.png` |
 | `cube_section.png` | Side-by-side deformed sections coloured by σzz |
 | `cube_strain.png` | Strain components, one row per boundary-condition case |
+| `cube_stress.png` | All six stress components, one row per boundary-condition case |
 | `cube_displacement.png` | Displacement components and magnitude, same layout |
 | `element_27node.png` | Reference element, Ferrite node numbering, 1D Lagrange polynomials, shape-function slices |
 
@@ -28,6 +30,7 @@ julia --project=. -e 'using Pkg; Pkg.instantiate()'
 julia --project=. cube_compression.jl
 julia --project=. plot_section.jl
 julia --project=. plot_strain.jl
+julia --project=. plot_stress.jl
 julia --project=. plot_displacement.jl
 julia --project=. element_figure.jl
 ```
