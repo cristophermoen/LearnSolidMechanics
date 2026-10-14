@@ -231,7 +231,7 @@ Build fast numerical functions from the symbolic results and pick some concrete 
 """
 
 # ╔═╡ a1000000-0000-0000-0000-00000000001f
-params = (T = 100.0,        # MPa
+params = (T = 1000.0,        # MPa
           l = 1000.0,       # mm  (half-length)
           c = 100.0,        # mm  (half-height)
           E = 200_000.0,    # MPa
